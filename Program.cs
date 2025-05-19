@@ -1,15 +1,22 @@
-﻿double salario;
-int hora, horaEXtra;
-    Console.WriteLine("Digite seu salario por hora..: ");
-       salario = Convert.ToDouble(Console.ReadLine());
-    Console.WriteLine("Digite a quantidade de horas trabalhadas..: ");
-        hora = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Digite a quantidade de horas extras trabalhadas..: ");
-        horaEXtra = Convert.ToInt32(Console.ReadLine());
-double salarioExtra = salario *0.40;
+﻿Console.WriteLine("Digite seu salario por hora..: ");
+    double salario = Convert.ToDouble(Console.ReadLine());   //salario por hora
+    
+Console.WriteLine("Digite a quantidade de horas trabalhadas..: ");
+   int hora = Convert.ToInt32(Console.ReadLine());          //hora
+   
+Console.WriteLine("Digite a quantidade de horas extras trabalhadas..: ");
+    int horaEXtra = Convert.ToInt32(Console.ReadLine());     //hora extra
+    double salarioFinal = calculoSalario();
+Console.WriteLine($"Seu salario é {salarioFinal:C2}");
 
-    salarioExtra = salarioExtra*horaEXtra;
-    salario = salario*hora;
-    Console.WriteLine($"Seu salario é {salario+salarioExtra}");
-
+    //Função para fazer o salario
+        double calculoSalario()
+        {
+            double salarioExtra = salario * 0.4;
+            salarioExtra *= horaEXtra;
+            double salarioFinal = salario * hora;
+            double salarioTotal = salarioFinal+salarioExtra;
+            return salarioTotal;
+        }
+    
 
